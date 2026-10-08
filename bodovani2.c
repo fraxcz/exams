@@ -3,7 +3,7 @@
 #define poleC_LEN 6
 #include <stdio.h>
 #include <stdbool.h>
-
+// comment for git
 bool jeVMnozine (int delka, int pole[], int cislo);
 bool jeMnozina (int delka, int pole[]);
 void vypisPrunik (int delkaA , int poleA[], int delkaB , int poleB[]);
