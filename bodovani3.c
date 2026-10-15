@@ -74,6 +74,8 @@ float obvod( Trojuhelnik T)
 
 float obsah( Trojuhelnik T)
 {
+    // Heronův vzorec
+
     float a = vzdalenost(T.bodB, T.bodC);
     float b = vzdalenost(T.bodA, T.bodC);
     float c = vzdalenost(T.bodA, T.bodB);
