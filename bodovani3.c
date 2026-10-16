@@ -14,11 +14,11 @@ typedef struct Trojuhelnik
     Bod bodC;
 } Trojuhelnik;
 
-void vypisSouradnice ( Trojuhelnik T);
+void vypisSouradnice (Trojuhelnik T);
 float vzdalenost (Bod A, Bod B);
-float obvod( Trojuhelnik T);
-float obsah( Trojuhelnik T);
-Bod teziste ( Trojuhelnik T);
+float obvod(Trojuhelnik T);
+float obsah(Trojuhelnik T);
+Bod teziste (Trojuhelnik T);
 
 int main()
 {
@@ -58,10 +58,10 @@ void vypisSouradnice(Trojuhelnik T)
 
 float vzdalenost (Bod A, Bod B)
 {
-    return sqrtf(pow(B.x - A.x, 2) + pow(B.y - A.y, 2));
+    return sqrtf((B.x - A.x) * (B.x - A.x) + (B.y - A.y) * (B.y - A.y));
 }
 
-float obvod( Trojuhelnik T)
+float obvod(Trojuhelnik T) 
 {
     float stranaA, stranaB, stranaC;
 
@@ -72,7 +72,7 @@ float obvod( Trojuhelnik T)
     return stranaA + stranaB + stranaC;
 }
 
-float obsah( Trojuhelnik T)
+float obsah(Trojuhelnik T)
 {
     // Heronův vzorec
 
@@ -80,7 +80,7 @@ float obsah( Trojuhelnik T)
     float b = vzdalenost(T.bodA, T.bodC);
     float c = vzdalenost(T.bodA, T.bodB);
 
-    float s = a + b + c / 2.0f;
+    float s = (a + b + c) / 2.0f; // here
 
     return sqrtf(s * (s - a) * (s - b) * (s - c));
 }
