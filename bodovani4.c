@@ -8,9 +8,16 @@ typedef struct Bod
     float y;
 } Bod;
 
-float prumernaVzdalenost (int delka, Bod pole[]);
-void stredMnoziny (int delka, Bod pole[], Bod* S);
-Bod* nejblizsiBod (int delka, Bod pole[], Bod S);
+float prumernaVzdalenost (int delka, Bod *pole);
+void stredMnoziny (int delka, Bod *pole, Bod* S);
+Bod* nejblizsiBod (int delka, Bod *pole, Bod S);
+void vypisPoleBodu(Bod *poleBodu, int pocet)
+{
+    for(int i = 0; i < pocet; i++)
+    {
+        printf("pole[%d]: (%.3f, %.3f)\n", i, poleBodu[i].x, poleBodu[i].y);
+    }
+}
 
 float vzdalenost (Bod A, Bod B)
 {
@@ -24,6 +31,7 @@ int main()
     Bod* aNejblizsiBod;
 
     printf("poleBodu1:\n");
+    vypisPoleBodu(poleBodu1, 4);
     printf("Prumerna vzdalenost: %.6f\n", prumernaVzdalenost(4, poleBodu1));
     stredMnoziny(4, poleBodu1, &stred);
     printf("Stred mnoziny: (%.2f, %.2f)\n", stred.x, stred.y);
@@ -36,6 +44,7 @@ int main()
     Bod poleBodu2[] = {{0.0, 0.0}, {1.0, 3.0}, {3.0, 2.0}, {3.0, 0.0}};
 
     printf("poleBodu2:\n");
+    vypisPoleBodu(poleBodu2, 4);
     printf("Prumerna vzdalenost: %.6f\n", prumernaVzdalenost(4, poleBodu2));
     stredMnoziny(4, poleBodu2, &stred);
     printf("Stred mnoziny: (%.2f, %.2f)\n", stred.x, stred.y);
@@ -45,7 +54,7 @@ int main()
 
 }
 
-float prumernaVzdalenost (int delka, Bod pole[])
+float prumernaVzdalenost (int delka, Bod *pole)
 {
     float vzdalenostCelkem = 0.0f;
     int vypocitaneVzdalenosti = 0;
@@ -61,7 +70,7 @@ float prumernaVzdalenost (int delka, Bod pole[])
     return vzdalenostCelkem / vypocitaneVzdalenosti;
 }
 
-void stredMnoziny (int delka, Bod pole[], Bod* S)
+void stredMnoziny (int delka, Bod *pole, Bod* S)
 {
     float x = 0, y = 0;
     float pocet = 0;
@@ -80,7 +89,7 @@ void stredMnoziny (int delka, Bod pole[], Bod* S)
     S->y = y;
 }
 
-Bod* nejblizsiBod (int delka, Bod pole[], Bod S)
+Bod* nejblizsiBod (int delka, Bod *pole, Bod S)
 {
     Bod *N = malloc(sizeof(Bod));
 
