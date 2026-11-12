@@ -170,9 +170,9 @@ void odeberIndex (vektor * A, int index)
     if(A == NULL || A->delka < 1 || index >= A->delka || index < 0)
         return;
 
-    for(int i = index + 1; i < A->delka; i++)
+    for(int i = index; i < A->delka; i++)
     {
-        A->arr[i - 1] = A->arr[i];
+        A->arr[i] = A->arr[i + 1];
     }
 
     odeberPosledni(A);
