@@ -133,13 +133,6 @@ void odeberVsechny (vektor * A)
 
 void pridejPrvni (vektor * A, int cislo)
 {
-    if(A->delka == 0)
-    {
-        A->arr = malloc(sizeof(int));
-        A->delka += 1;
-        A->arr[A->delka - 1] = cislo;
-        return;
-    }
     A->arr = realloc(A->arr, sizeof(int) * (A->delka + 1));
     A->delka += 1;
 
