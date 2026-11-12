@@ -19,7 +19,11 @@ void odeberIndex (vektor * A, int index);
 int main()
 {
     vektor *v = alokujVektor();
-
+    if(v == NULL)
+    {
+        printf("Memory alloc failure.\n");
+        return 1;
+    }
     // -----------------přidej poslední-----------------
     vypisVektor(v);
     pridejPosledni(v, 10);
@@ -81,6 +85,9 @@ void vypisVektor (vektor * A)
 vektor* alokujVektor()
 {
     vektor *v = malloc(sizeof(vektor));
+
+    if(v == NULL) return NULL;
+
     v->delka = 0;
     v->arr = NULL;
     return v;
@@ -144,7 +151,7 @@ void odeberVsechny (vektor * A)
 void pridejPrvni (vektor * A, int cislo)
 {
     int *a = realloc(A->arr, sizeof(int) * (A->delka + 1));
-    
+
     if(a)
         A->arr = a;
     else return;
