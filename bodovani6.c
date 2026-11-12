@@ -110,7 +110,12 @@ void pridejPosledni (vektor * A, int cislo)
         return;
     }
 
-    A->arr = realloc(A->arr, sizeof(int) * (A->delka + 1));
+    int *a = realloc(A->arr, sizeof(int) * (A->delka + 1));
+
+    if(a)
+        A->arr = a;
+    else return;
+
     A->delka += 1;
     A->arr[A->delka - 1] = cislo;
 }
@@ -120,7 +125,12 @@ void odeberPosledni (vektor * A)
     if(A->delka < 1)
         return;
 
-    A->arr = realloc(A->arr, sizeof(int) * (A->delka - 1));
+    int *a = realloc(A->arr, sizeof(int) * (A->delka - 1));
+
+    if(a)
+        A->arr = a;
+    else return;
+
     A->delka -= 1;
 }
 
@@ -133,7 +143,12 @@ void odeberVsechny (vektor * A)
 
 void pridejPrvni (vektor * A, int cislo)
 {
-    A->arr = realloc(A->arr, sizeof(int) * (A->delka + 1));
+    int *a = realloc(A->arr, sizeof(int) * (A->delka + 1));
+    
+    if(a)
+        A->arr = a;
+    else return;
+
     A->delka += 1;
 
     for(int i = A->delka - 1; i > 0; i--)
