@@ -19,6 +19,8 @@ void odeberIndex (vektor * A, int index);
 int main()
 {
     vektor *v = alokujVektor();
+    v->delka = 0;
+    v->arr = NULL;
 
     // přidej poslední
     vypisVektor(v);
@@ -33,7 +35,7 @@ int main()
 
     odeberPosledni(v);
     vypisVektor(v);
-    
+
     odeberVsechny(v);
     vypisVektor(v);
 
