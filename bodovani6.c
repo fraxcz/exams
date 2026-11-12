@@ -20,7 +20,7 @@ int main()
 {
     vektor *v = alokujVektor();
 
-    // přidej poslední
+    // -----------------přidej poslední-----------------
     vypisVektor(v);
     pridejPosledni(v, 10);
     vypisVektor(v);
@@ -37,7 +37,7 @@ int main()
     odeberVsechny(v);
     vypisVektor(v);
 
-    //přidej první
+    // -----------------přidej první-----------------
     pridejPrvni(v, 40);
     vypisVektor(v);
 
@@ -47,7 +47,7 @@ int main()
     pridejPrvni(v, 60);
     vypisVektor(v);
 
-    //odeber index
+    // -----------------odeber index-----------------
     odeberIndex(v, 100);
     vypisVektor(v);
 
@@ -117,7 +117,7 @@ void pridejPosledni (vektor * A, int cislo)
 
 void odeberPosledni (vektor * A)
 {
-    if(A->delka == 0)
+    if(A->delka < 1)
         return;
 
     A->arr = realloc(A->arr, sizeof(int) * (A->delka - 1));
