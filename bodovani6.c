@@ -143,6 +143,9 @@ void odeberPosledni (vektor * A)
 
 void odeberVsechny (vektor * A)
 {
+    if(A->arr == NULL)
+        return;
+        
     free(A->arr);
     A->arr = NULL;
     A->delka = 0;
