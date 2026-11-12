@@ -19,8 +19,6 @@ void odeberIndex (vektor * A, int index);
 int main()
 {
     vektor *v = alokujVektor();
-    v->delka = 0;
-    v->arr = NULL;
 
     // přidej poslední
     vypisVektor(v);
@@ -80,9 +78,11 @@ void vypisVektor (vektor * A)
     printf("%d)\n", A->arr[A->delka - 1]);
 }
 
-vektor* alokujVektor ()
+vektor* alokujVektor()
 {
     vektor *v = malloc(sizeof(vektor));
+    v->delka = 0;
+    v->arr = NULL;
     return v;
 }
 
