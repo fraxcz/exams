@@ -34,16 +34,19 @@ int main()
     print_osoba(osoby[2]);
     print_porovnej(porovnejac);
     printf("\n");
+    
     //vymen
     printf("Vymen 2 a 5 osobu:\n");
     print_osoby(osoby, 5);
     vymen(&(osoby[1]), &(osoby[4]));
     print_osoby(osoby, 5);
     printf("\n");
+
     //nejmensi
     print_osoby(osoby, 5);
     printf("Index osoby s nejmenší hodnotou: %d\n", nejmensi(5, osoby));
     printf("\n");
+
     //serad
     printf("serad:\n");
     serad(0, 5, osoby);
